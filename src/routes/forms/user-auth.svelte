@@ -4,6 +4,8 @@
 	import { Input } from '$lib/components/ui/input';
 	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 	import '@fontsource/noto-sans/400.css';
+	import { goto } from '$app/navigation';
+	import { toast } from 'svelte-sonner';
 	import '@fontsource/noto-sans/500.css';
 	import '@fontsource/noto-sans/600.css';
 	import '@fontsource/noto-sans/700.css';
@@ -16,6 +18,9 @@
 	export { className as class };
 
 	let isLoading = false;
+	function handleClick() {
+		goto('/home');
+	}
 	async function onSubmit() {
 		isLoading = true;
 
@@ -23,6 +28,7 @@
 			isLoading = false;
 		}, 3000);
 	}
+	// isLoading = true;
 </script>
 
 <div class={cn('grid gap-6', className)} {...$$restProps}>
@@ -50,7 +56,15 @@
 				/>
 				<br />
 			</div>
-			<Button disabled={isLoading}>
+			<Button
+				disabled={isLoading}
+				on:click={() => {
+                    onSubmit();
+					toast.info('Please wait while we are signing you in', {
+						description: 'Sunday, December 03, 2023 at 9:00 AM'
+					});
+				}}
+			>
 				{#if isLoading}
 					<!-- <Icons.spinner class="mr-2 h-4 w-4 animate-spin" /> -->
 				{/if}
@@ -66,9 +80,9 @@
 			<span class="bg-background px-2 text-muted-foreground"> Or continue with </span>
 		</div>
 	</div>
-	<Button variant="outline" type="button" disabled={isLoading}>
+	<Button variant="outline" type="button" disabled={isLoading} on:click={handleClick}>
 		{#if isLoading}
-			<Google class="mr-2 h-4 w-4 animate-spin" />
+			<Google class="mr-2 h-4 w-4" />
 		{:else}
 			<Google class="mr-2 h-4 w-4" />
 		{/if}

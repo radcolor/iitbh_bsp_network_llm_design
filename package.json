@@ -43,10 +43,13 @@
 		"@sveltejs/adapter-static": "^3.0.1",
 		"bits-ui": "^0.18.1",
 		"clsx": "^2.1.0",
+		"formsnap": "^0.4.4",
 		"lucide-svelte": "^0.330.0",
 		"mode-watcher": "^0.2.1",
 		"svelte-sonner": "^0.3.17",
+		"sveltekit-superforms": "^2.1.0",
 		"tailwind-merge": "^2.2.1",
-		"tailwind-variants": "^0.2.0"
+		"tailwind-variants": "^0.2.0",
+		"zod": "^3.22.4"
 	}
 }
