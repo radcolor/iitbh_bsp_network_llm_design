@@ -5,6 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource/lexend':
+    specifier: ^5.0.18
+    version: 5.0.18
+  '@fontsource/noto-sans':
+    specifier: ^5.0.18
+    version: 5.0.18
+  '@fontsource/source-code-pro':
+    specifier: ^5.0.16
+    version: 5.0.16
   bits-ui:
     specifier: ^0.18.1
     version: 0.18.1(svelte@4.2.10)
@@ -14,6 +23,12 @@ dependencies:
   lucide-svelte:
     specifier: ^0.330.0
     version: 0.330.0(svelte@4.2.10)
+  mode-watcher:
+    specifier: ^0.2.1
+    version: 0.2.1(svelte@4.2.10)
+  svelte-sonner:
+    specifier: ^0.3.17
+    version: 0.3.17(svelte@4.2.10)
   tailwind-merge:
     specifier: ^2.2.1
     version: 2.2.1
@@ -370,6 +385,18 @@ packages:
 
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: false
+
+  /@fontsource/lexend@5.0.18:
+    resolution: {integrity: sha512-RcNekPIeQGX5ZvwRtX7UHDoDrGTg8IV2Yae13qjtxW6FO4kFaUKSlITKnrvaK8r8ly/fQ6x2mXva9jmMZPZ4Ug==}
+    dev: false
+
+  /@fontsource/noto-sans@5.0.18:
+    resolution: {integrity: sha512-tPMBWiI268eApqBl6QyAH0I3dvLaHuECJ9H1S0Ve2qd380tuPcHSJaeBv4CEha643hJ+KH1Nm7FnHhQSeZvHHw==}
+    dev: false
+
+  /@fontsource/source-code-pro@5.0.16:
+    resolution: {integrity: sha512-ErErGXjKo9/fAJE49fyU8M6DuJUpdqR5YLM8jGJOC5ZcKIDSTQ5m+R3DTa0VYHAGGFbk2qLWVWD/r5sfCLA/jQ==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -1708,6 +1735,14 @@ packages:
       minimist: 1.2.8
     dev: true
 
+  /mode-watcher@0.2.1(svelte@4.2.10):
+    resolution: {integrity: sha512-HLmJgG5kmJCFR/+rcG2te54HjIxqk7BTAsFnsygZR5hcOYlhLEJQ0V8rh1axv2JQIbOAZs1yPlUBSpVATRFtUw==}
+    peerDependencies:
+      svelte: ^4.0.0
+    dependencies:
+      svelte: 4.2.10
+    dev: false
+
   /mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -2361,6 +2396,14 @@ packages:
       svelte: 4.2.10
       typescript: 5.3.3
     dev: true
+
+  /svelte-sonner@0.3.17(svelte@4.2.10):
+    resolution: {integrity: sha512-jociRGESILpHi6fIIcqGYE1bWAfK4ZeTLHuXxNgGMhG1FwhNRIK1bsCbXEl8/AjRV8aiNXtkS/+IlQtvb2jR9g==}
+    peerDependencies:
+      svelte: '>=3 <5'
+    dependencies:
+      svelte: 4.2.10
+    dev: false
 
   /svelte@4.2.10:
     resolution: {integrity: sha512-Ep06yCaCdgG1Mafb/Rx8sJ1QS3RW2I2BxGp2Ui9LBHSZ2/tO/aGLc5WqPjgiAP6KAnLJGaIr/zzwQlOo1b8MxA==}
