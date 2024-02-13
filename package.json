@@ -39,6 +39,8 @@
 		"@fontsource/lexend": "^5.0.18",
 		"@fontsource/noto-sans": "^5.0.18",
 		"@fontsource/source-code-pro": "^5.0.16",
+		"@sveltejs/adapter-node": "^4.0.1",
+		"@sveltejs/adapter-static": "^3.0.1",
 		"bits-ui": "^0.18.1",
 		"clsx": "^2.1.0",
 		"lucide-svelte": "^0.330.0",

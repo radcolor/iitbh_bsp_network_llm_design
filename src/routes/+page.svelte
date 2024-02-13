@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0"
+	class="container relative h-[800px] items-center justify-center md:grid"
 >
 	<div class="lg:p-8">
 		<div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
