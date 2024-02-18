@@ -13,20 +13,43 @@
 	import '@fontsource/source-code-pro/600.css';
 	import { cn } from '$lib/utils';
 	import Google from '../icons/google.svelte';
+	import { authHandlers } from '$lib/backend/authenticate';
+
+	let email: string | null = null;
+	let password: string | null = null;
+
+	async function handleAuthenticate() {
+		console.log('email: ' + email + ' password: ' + password);
+		if (!email || !password) {
+			toast.error('Email or password is NULL');
+			return;
+		}
+		try {
+			await authHandlers.login(email, password);
+		} catch (err) {
+			console.log('There was an auth error', err);
+		}
+	}
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
 
 	let isLoading = false;
-	function handleClick() {
-		goto('/home');
+	async function handleClick() {
+		await authHandlers.glogin();
 	}
 	async function onSubmit() {
-		isLoading = true;
-
-		setTimeout(() => {
-			isLoading = false;
-		}, 3000);
+		if (!email || !password) {
+			toast.error('Email or password is NULL');
+			return;
+		} else {
+			isLoading = true;
+			handleAuthenticate();
+			toast.info('Please wait while we logging you in');
+			setTimeout(() => {
+				isLoading = false;
+			}, 3000);
+		}
 	}
 	// isLoading = true;
 </script>
@@ -38,6 +61,7 @@
 				<Label class="sr-only" for="email">Email</Label>
 				<Input
 					id="email"
+					bind:value={email}
 					placeholder="yourname@yourdomain.in"
 					type="email"
 					autocapitalize="none"
@@ -47,6 +71,7 @@
 				/>
 				<Input
 					id="password"
+					bind:value={password}
 					placeholder="type password here..."
 					type="password"
 					autocapitalize="none"
@@ -54,15 +79,12 @@
 					autocorrect="off"
 					disabled={isLoading}
 				/>
-				<br />
 			</div>
+			<div></div>
 			<Button
 				disabled={isLoading}
 				on:click={() => {
-                    onSubmit();
-					toast.info('Please wait while we are signing you in', {
-						description: 'Sunday, December 03, 2023 at 9:00 AM'
-					});
+					onSubmit();
 				}}
 			>
 				{#if isLoading}
