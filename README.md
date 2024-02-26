@@ -30,7 +30,7 @@ pnpm install
 Run the below command in the project root dir to install frontend dependencies and start the server in dev mode.
 
 ```bash
-# Then use bun and cargo commands to install other dependencies and run
+# Then use pnpm commands to run
 pnpm run dev
 ```
 

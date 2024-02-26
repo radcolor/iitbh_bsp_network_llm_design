@@ -12,7 +12,7 @@
 	import '@fontsource/noto-sans/800.css';
 	import '@fontsource/source-code-pro/600.css';
 	import { cn } from '$lib/utils';
-	import Google from '../icons/google.svelte';
+	import Google from '$lib/components/ui/Icons/google.svelte';
 	import { authHandlers } from '$lib/backend/authenticate';
 
 	let email: string | null = null;
