@@ -1,14 +1,46 @@
 <script lang="ts">
+	import type { CreateChatCompletionRequest, ChatCompletionRequestMessage } from 'openai';
 	import ChatHistory from '$lib/components/ui/ChatHistory.svelte';
 	import ChatMessage from '$lib/components/ui/ChatMessage.svelte';
 	import Input from '$lib/components/ui/Input.svelte';
 	import { chatMessages, answer } from '$lib/stores/chat_messages';
+	import { getTokens } from '$lib/utils';
 
 	let query = '';
+
+	async function doPost() {
+		const prompt = 'Who is Radwimps';
+
+		const messages: ChatCompletionRequestMessage[] = [{ role: 'system', content: prompt }];
+
+		const chatRequestOpts: CreateChatCompletionRequest = {
+			model: 'gpt-3.5-turbo',
+			messages,
+			temperature: 1.0,
+			stream: false
+		};
+
+		const chatResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+			headers: {
+				Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+				'Content-Type': 'application/json'
+			},
+			method: 'POST',
+			body: JSON.stringify(chatRequestOpts)
+		});
+
+		if (!chatResponse.ok) {
+			const err = await chatResponse.json();
+			throw new Error(err);
+		}
+
+		console.log(await chatResponse.json());
+	}
 
 	const handleSubmit = async () => {
 		answer.set('...');
 		await chatMessages.set(query);
+		// doPost();
 		query = '';
 	};
 </script>
@@ -55,39 +87,7 @@
 		overflow: hidden;
 		font-weight: 400;
 	}
-	html,
-	body {
-		height: 100%;
-	}
 	.gridd {
 		background-color: #26282d;
-	}
-
-	pre {
-		display: inline-flex;
-		padding: 0.5rem;
-		width: 100%;
-		border-radius: 0.25rem;
-	}
-
-	code {
-		background-color: rgba(44, 43, 43, 0.6);
-		color: rgb(190 18 60 / var(--tw-text-opacity));
-		border-radius: 0.25rem;
-		padding: 0 0.5rem;
-	}
-
-	body {
-		color: white;
-		background-color: #131416;
-	}
-
-	ol {
-		list-style: number;
-		padding: 1rem;
-	}
-
-	ol > li {
-		margin: 1rem 0;
 	}
 </style>

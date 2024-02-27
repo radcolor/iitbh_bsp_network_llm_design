@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { cubicOut } from "svelte/easing";
 import type { TransitionConfig } from "svelte/transition";
+import GPT3TokenizerImport from 'gpt3-tokenizer';
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -13,6 +14,18 @@ type FlyAndScaleParams = {
     start?: number;
     duration?: number;
 };
+
+const GPT3Tokenizer: typeof GPT3TokenizerImport =
+  typeof GPT3TokenizerImport === 'function'
+    ? GPT3TokenizerImport
+    : (GPT3TokenizerImport as any).default;
+
+const tokenizer = new GPT3Tokenizer({ type: 'gpt3' });
+
+export function getTokens(input: string): number {
+  const tokens = tokenizer.encode(input);
+  return tokens.text.length;
+}
 
 export const flyAndScale = (
     node: Element,
