@@ -2,16 +2,16 @@ import type { CreateChatCompletionRequest, ChatCompletionRequestMessage } from '
 import type { RequestHandler } from './$types';
 import { getTokens } from '$lib/utils';
 import { json } from '@sveltejs/kit';
-import type { Config } from '@sveltejs/adapter-vercel';
-import { Pinecone } from '@pinecone-database/pinecone';
+// import type { Config } from '@sveltejs/adapter-vercel';
+// import { Pinecone } from '@pinecone-database/pinecone';
 
-export const config: Config = {
-    runtime: 'edge'
-};
+// export const config: Config = {
+//     runtime: 'edge'
+// };
 
-export const pc = new Pinecone({
-    apiKey: import.meta.env.VITE_PINECONE_API_KEY
-});
+// export const pc = new Pinecone({
+//     apiKey: import.meta.env.VITE_PINECONE_API_KEY
+// });
 
 export const POST: RequestHandler = async ({ request }) => {
     try {
