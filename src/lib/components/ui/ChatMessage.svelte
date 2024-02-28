@@ -13,7 +13,7 @@
     let scrollToDiv: HTMLDivElement;
   
     const classSet = {
-      user: 'justify-end text-rose-700',
+      user: 'justify-end text-white',
       assistant: 'justify-start text-teal-400',
       system: 'justify-center text-gray-400'
     };

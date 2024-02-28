@@ -83,9 +83,10 @@
 
 <style>
 	:root {
-		font-family: 'Lexend', 'Noto Sans';
+		font-family: 'Noto Sans', 'Lexend';
 		overflow: hidden;
-		font-weight: 400;
+		font-weight: 500;
+		font-size: large;
 	}
 	.gridd {
 		background-color: #26282d;
